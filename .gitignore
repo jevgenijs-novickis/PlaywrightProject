@@ -1,0 +1,13 @@
+#Visual Studio files
+*.suo
+*.user
+obj/
+[Bb]in
+
+#NuGet
+packages/
+
+#Settings
+.vs/
+
+.idea
