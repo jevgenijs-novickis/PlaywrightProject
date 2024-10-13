@@ -30,13 +30,13 @@ jobs:
         run: dotnet restore
 
       - name: Build the project
-        run: dotnet build --configuration Release
-
-      - name: Install Node.js dependencies
-        run: npm install  # This step installs your project's Node.js dependencies
+        run: dotnet build --configuration Release 
 
       - name: Install Playwright browsers
-        run: npx playwright install  # Now this will run after dependencies are installed
+        run: dotnet tool install --global Microsoft.Playwright.CLI 
+
+      - name: Install the browsers using the Playwright CLI
+        run: playwright install 
 
       - name: Run tests
         run: dotnet test --configuration Release --no-build --logger "console;verbosity=detailed"
