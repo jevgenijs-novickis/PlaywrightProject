@@ -32,8 +32,11 @@ jobs:
       - name: Build the project
         run: dotnet build --configuration Release
 
+      - name: Install Node.js dependencies
+        run: npm install  # This step installs your project's Node.js dependencies
+
       - name: Install Playwright browsers
-        run: npx playwright install
+        run: npx playwright install  # Now this will run after dependencies are installed
 
       - name: Run tests
         run: dotnet test --configuration Release --no-build --logger "console;verbosity=detailed"
